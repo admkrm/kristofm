@@ -1,0 +1,48 @@
+---
+layout: library/library.njk
+---
+
+<h1>{{photographer}}: {{title}}</h1>
+
+<h3>{{year_of_publication}}</h3>
+
+<p>{{publisher}}, {{place}}</p>
+
+<p>----------------------</p>
+
+<p>{{size}}, {{pages}}</p>
+
+<p>{{edition_info}}</p>
+
+<p>{{photos}}</p>
+
+<p>----------------------</p>
+
+<p>{{extra_info}}</p>
+
+<img src="{{image}}" alt="{{person}}: {{title}}">
+
+{{ content | safe }}
+
+<p>----------------------</p>
+
+<h2>Photographer bio</h2>
+
+{%- for item in collections.photographers -%}
+  {% if item.data.name == photographer %}
+    <p>{{ item.data.description }}</p>
+  {% endif %}
+{%- endfor -%}
+
+<p>----------------------</p>
+
+<h2>All books by this photographer in my collection</h2>
+
+<ul>
+  {%- for book in collections.photographerBooks[photographer] -%}
+      <li><a href="{{ book.url | url }}">{{ book.data.photographer }}: {{ book.data.title }}</a></li>
+  {%- endfor -%}
+</ul>
+
+
+<p>Back to <a href="{{ '/library/' | url }}">library overview</a> or the <a href="{{ '/library/search/' | url }}">search page</a></p>

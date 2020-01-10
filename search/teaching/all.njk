@@ -1,0 +1,14 @@
+---
+permalink: /teaching/all/
+title: All teaching stuff
+layout: teaching/page.njk
+---
+<h1>All the teaching items I have written</h1>
+
+<ul>
+{%- for item in collections.teaching | reverse -%}
+  <li><a href="{{ item.url | url }}">{{ item.data.title }}</a> ({{item.data.date.getDate()}}/{{item.data.date.getMonth()+1}}/{{ item.data.date.getFullYear() }})</li>
+{%- endfor -%}
+</ul>
+
+<p>View the <a href="{{ '/teaching/' | url }}">most recent</a> items or check out <a href="{{ '/teaching/search/' | url }}">the archive</a>.</p>

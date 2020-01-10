@@ -1,0 +1,18 @@
+---
+layout: notes/page.njk
+permalink: /notes/
+title: Notes
+date: 2019-12-26
+tags:
+  - nav
+---
+
+<h1>My most recent notes</h1>
+
+<ul>
+{%- for note in collections.notes | head(-3) | reverse -%}
+  <li><a href="{{ note.url | url }}">{{ note.data.title }}</a> ({{note.data.date.getDate()}}/{{note.data.date.getMonth()+1}}/{{ note.data.date.getFullYear() }})</li>
+{%- endfor -%}
+</ul>
+
+<p>View the chronological <a href="{{ '/notes/all/' | url }}">full list</a> of notes or <a href="{{ '/notes/search/' | url }}">search</a> by tag or category.</p>

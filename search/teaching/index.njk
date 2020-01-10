@@ -1,0 +1,20 @@
+---
+layout: teaching/page.njk
+permalink: /teaching/
+title: Teaching
+date: 2019-12-27
+tags:
+  - nav
+---
+
+<h1>My most recent teaching items</h1>
+
+<p>Teaching will become the home of all my teaching materials. Slides, tutorials, shorter tips and recommended resources. I am still in doubt whether I will also post material written in dutch or not.</p>
+
+<ul>
+{%- for item in collections.teaching | head(-3) | reverse -%}
+  <li><a href="{{ item.url | url }}">{{ item.data.title }}</a> ({{item.data.date.getDate()}}/{{item.data.date.getMonth()+1}}/{{ item.data.date.getFullYear() }})</li>
+{%- endfor -%}
+</ul>
+
+<p>View the chronological <a href="{{ '/teaching/all/' | url }}">full list</a> of notes or <a href="{{ '/teaching/search/' | url }}">search</a> by tag or category.</p>

@@ -1,0 +1,18 @@
+---
+layout: links/page.njk
+permalink: /links/
+title: Links
+date: 2019-12-26
+tags:
+  - nav
+---
+
+<h1>My most recent links</h1>
+
+<ul>
+{%- for link in collections.links | head(-3) | reverse -%}
+  <li><a href="{{ link.url | url }}">{{ link.data.title }}</a> ({{link.data.date.getDate()}}/{{link.data.date.getMonth()+1}}/{{ link.data.date.getFullYear() }})</li>
+{%- endfor -%}
+</ul>
+
+<p>View the chronological <a href="{{ '/links/all/' | url }}">full list</a> of links or <a href="{{ '/links/search/' | url }}">search</a> by tag or category.</p>

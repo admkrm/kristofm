@@ -1,0 +1,20 @@
+---
+layout: gallery/page.njk
+permalink: /gallery/
+title: Gallery
+date: 2019-12-28
+tags:
+  - nav
+---
+
+<h1>My most recent gallery items</h1>
+
+<p>Gallery will become the home of all visual experiments. Slides, tutorials, shorter tips and recommended resources. I am still in doubt whether I will also post material written in dutch or not.</p>
+
+<ul>
+{%- for item in collections.gallery | head(-3) | reverse -%}
+  <li><a href="{{ item.url | url }}">{{ item.data.title }}</a> ({{item.data.date.getDate()}}/{{item.data.date.getMonth()+1}}/{{ item.data.date.getFullYear() }})</li>
+{%- endfor -%}
+</ul>
+
+<p>View the chronological <a href="{{ '/gallery/all/' | url }}">full list</a> of gallery items or <a href="{{ '/gallery/search/' | url }}">search</a> by tag or category.</p>

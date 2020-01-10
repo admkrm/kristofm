@@ -1,0 +1,22 @@
+---
+layout: library/library.njk
+title: Library
+date: 2019-12-29
+permalink: /library/
+tags:
+  - nav
+---
+
+<h1>My photobook library</h1>
+
+<p>Show me your book collection and I tell you who you are. I am an avid collector of photography books. No better place than my website to finally catalogue them in some way.</p>
+
+<p>This page will show the latest additions to the catalogue. Ten perhaps?</p>
+
+<ul>
+  {%- for book in collections.library | head(-20) | reverse -%}
+      <li><a href="{{ book.url | url }}">{{ book.data.photographer }}: {{ book.data.title }}</a></li>
+  {%- endfor -%}
+</ul>
+
+<p>View the chronological <a href="{{ '/library/all/' | url }}">full list</a> of books or <a href="{{ '/library/search/' | url }}">search</a> by tag or category.</p>

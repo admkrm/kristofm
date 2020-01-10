@@ -1,0 +1,19 @@
+---
+pagination:
+  data: collections.teachingCategories
+  size: 1
+  alias: category
+permalink: /teaching/search/categories/{{ category }}/
+layout: teaching/page.njk
+title: Teaching in category {{ category }}
+---
+<h1>Teaching for category "{{ category }}"</h1>
+
+<ul>
+  {% set teachingList = collections.teachingCategoryCollections[category] %}
+  {%- for item in teachingList -%}
+      <li><a href="{{ item.url | url }}">{{ item.data.title }}</a></li>
+  {%- endfor -%}
+</ul>
+
+<p>Back to <a href="{{ '/teaching/search/' | url }}">search</a>, to the <a href="{{ '/teaching/' | url }}">most recent</a> or <a href="{{ '/teaching/all' | url }}">full list</a> of teaching items</p>

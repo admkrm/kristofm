@@ -1,0 +1,18 @@
+---
+layout: writing/page.njk
+permalink: /writing/
+title: Writing
+date: 2019-12-26
+tags:
+  - nav
+---
+
+<h1>My most recent writing</h1>
+
+<ul>
+{%- for item in collections.writing | head(-3) | reverse -%}
+  <li><a href="{{ item.url | url }}">{{ item.data.title }}</a> ({{item.data.date.getDate()}}/{{item.data.date.getMonth()+1}}/{{ item.data.date.getFullYear() }})</li>
+{%- endfor -%}
+</ul>
+
+<p>View the chronological <a href="{{ '/writing/all/' | url }}">full list</a> of writing or <a href="{{ '/writing/search/' | url }}">search</a> by tag or category.</p>
